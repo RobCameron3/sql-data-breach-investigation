@@ -2,7 +2,7 @@
 # SQL Data Breach Investigation (Keiko Corp Case Study)
 
 ## Overview
-This project simulates a real-world data breach investigation using SQL. The goal was to identify the individual responsible by analyzing ride-sharing activity and cross-referencing it with employee data.
+This project investigates a data breach by analyzing ride-sharing activity and cross-referencing it with employee data using SQL to identify the responsible individual.
 
 ---
 

@@ -56,16 +56,20 @@ Narrowed the suspect pool and identified a confirmed match by linking ride activ
 
 ---
 
-## Key SQL Example
+## Key SQL Example (Cross-Database Matching)
+
+- This query demonstrates how cross-database matching was used to identify overlapping individuals between rider data and employee records.
 
 ```sql
 SELECT DISTINCT
-    srn.first_name,
-    srn.last_name
-FROM suspected_rider_names srn
-JOIN dblink(
-  'dbname=Employees',
-  'SELECT first_name, last_name FROM employees'
-) AS e(first_name TEXT, last_name TEXT)
-ON srn.first_name = e.first_name
-AND srn.last_name = e.last_name;
+    CONCAT(t1.first_name, ' ', t1.last_name) AS employee,
+    CONCAT(u.first_name, ' ', u.last_name) AS rider
+FROM dblink(
+    'dbname=Employees',
+    'SELECT first_name, last_name FROM employees;'
+) AS t1(first_name TEXT, last_name TEXT)
+JOIN suspected_rider_names AS u
+  ON t1.first_name = u.first_name
+ AND t1.last_name = u.last_name
+ORDER BY rider;
+```

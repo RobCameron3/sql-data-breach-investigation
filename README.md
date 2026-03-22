@@ -18,6 +18,7 @@ Determine who was present at Keiko Corp during the time of the data breach and i
 - Data cleaning using `split_part`
 - Creating reusable datasets with SQL views
 - Cross-database querying using `dblink`
+- Data matching and entity resolution across datasets
 - Analytical problem solving
 
 ---

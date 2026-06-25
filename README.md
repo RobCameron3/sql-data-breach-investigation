@@ -1,59 +1,63 @@
+🗄️ SQL – Data Breach Investigation
+(SQL Investigation Case Study)
+🌎 Overview
 
-# SQL Data Breach Investigation (Keiko Corp Case Study)
+This project investigates a simulated corporate data breach by analyzing ride-sharing activity and cross-referencing external transportation records with internal employee data. Using SQL, the investigation narrows potential suspects through relational database analysis and cross-database querying.
 
-## Overview
-This project investigates a data breach by analyzing ride-sharing activity and cross-referencing it with employee data using SQL to identify the responsible individual.
+🎯 Objective
 
----
+Determine who was present at Keiko Corp during the time of the security incident by linking ride activity with employee records and identifying overlapping individuals through SQL analysis.
 
-## Objective
-Determine who was present at Keiko Corp during the time of the data breach and identify connections between external users and internal employees.
+❓ Business Challenge
 
----
+Following a suspected data breach, investigators needed to determine which individuals were present near the company during the incident. The challenge was that the relevant data was distributed across multiple databases and required joining external ride-sharing information with internal employee records.
 
-## Key Skills Demonstrated
-- SQL Joins (multi-table relationships)
-- Filtering using timestamps and geolocation (latitude/longitude)
-- Data deduplication using DISTINCT
-- Data cleaning using `split_part`
-- Creating reusable datasets with SQL views
-- Cross-database querying using `dblink`
-- Data matching and entity resolution across datasets
-- Analytical problem solving
+💡 Solution
 
----
+Developed a SQL investigation workflow that filtered ride activity by time and location, linked rides to vehicles and passengers, cleaned and standardized data, and performed cross-database matching to identify individuals connected to both the transportation records and the company's employee database.
 
-## Investigation Process
+🛠️ Key Skills Demonstrated
+🔗 Multi-table SQL joins and relational database analysis
+📍 Filtering using timestamps and geographic coordinates
+🧹 Data cleaning and normalization with split_part
+🗂️ Data deduplication using DISTINCT
+🏗️ SQL view creation for reusable datasets
+🌐 Cross-database querying using dblink
+🔍 Entity resolution and record matching
+🧠 Analytical problem solving and investigative reasoning
+⚙️ Investigation Process
+📍 Step 1: Identify Rides Near the Incident
 
-### Step 1: Identify rides near the incident location
-Filtered ride data using latitude, longitude, and timestamp to isolate activity near Keiko Corp on the date of the breach.
+Filtered ride-sharing records by latitude, longitude, and timestamp to isolate activity surrounding Keiko Corp during the data breach.
 
-### Step 2: Link rides to vehicles
-Joined ride data to identify which vehicles were present.
+🚗 Step 2: Link Rides to Vehicles
 
-### Step 3: Investigate drivers
-Mapped vehicles to owners (drivers), but results were inconclusive.
+Joined transportation records to determine which vehicles were present at the incident location.
 
-### Step 4: Investigate riders
-Shifted focus to riders and identified individuals associated with the suspicious rides.
+👤 Step 3: Investigate Drivers
 
-### Step 5: Normalize rider names
-Used `split_part` to separate first and last names from a single column.
+Mapped vehicles to registered drivers to identify potential persons of interest.
 
-### Step 6: Cross-reference with employee database
-Used `dblink` to compare rider names against employee records across a separate database.
+🚕 Step 4: Investigate Riders
 
----
+Expanded the investigation to passengers and identified individuals associated with the suspicious rides.
 
-## Outcome
-Narrowed the suspect pool and identified a confirmed match by linking ride activity with internal employee data.
+🧹 Step 5: Normalize Rider Data
 
----
+Used SQL string functions to separate first and last names into standardized fields for reliable matching.
 
-## Tools Used
-- PostgreSQL
-- SQL
-- Valentina Studio
+🌐 Step 6: Cross-Reference Employee Records
+
+Used dblink to compare suspected riders against employee records stored in a separate database and identify confirmed matches.
+
+✅ Outcome
+
+Successfully narrowed the suspect pool by combining geospatial filtering, relational database joins, data cleaning, and cross-database analysis to identify an individual connected to both the ride-sharing records and the company's employee database.
+
+💻 Tools Used
+🐘 PostgreSQL
+🗄️ SQL
+💻 Valentina Studio
 
 ---
 

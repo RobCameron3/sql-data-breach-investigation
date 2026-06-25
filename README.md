@@ -4,7 +4,7 @@
 
 ## 🌎 Overview
 
-This project investigates a simulated corporate data breach by analyzing ride-sharing activity and cross-referencing external transportation records with internal employee data. Using SQL, the investigation narrows potential suspects through relational database analysis and cross-database querying.
+This project investigates a corporate data breach by analyzing ride-sharing activity and cross-referencing external transportation records with internal employee data. Using SQL, the investigation narrows potential suspects through relational database analysis and cross-database querying.
 
 ## 🎯 Objective
 

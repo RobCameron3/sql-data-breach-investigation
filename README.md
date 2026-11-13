@@ -2,7 +2,7 @@
 # 🔎 SQL Data Breach Investigation
 ### PostgreSQL | Digital Forensics | Data Integration | SQL Analysis
 
-Investigated a simulated corporate data breach by connecting ride-sharing activity, vehicle records, and employee databases to identify individuals associated with a security incident.
+Investigated a corporate data breach by connecting ride-sharing activity, vehicle records, and employee databases to identify individuals associated with a security incident.
 
 **Core Skills:** SQL Joins • PostgreSQL • Data Cleaning • Entity Resolution • Cross-Database Queries • Investigative Analytics
 

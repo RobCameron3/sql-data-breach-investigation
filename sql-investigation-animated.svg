@@ -1,0 +1,609 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1400" height="950"
+     viewBox="0 0 1400 950"
+     role="img"
+     aria-label="Animated SQL investigation with vehicle surveillance and character-by-character SQL typing">
+
+<title>SQL Data Breach Investigation — Surveillance Analysis</title>
+
+<defs>
+  <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0a1014"/>
+    <stop offset=".55" stop-color="#182128"/>
+    <stop offset="1" stop-color="#0b1218"/>
+  </linearGradient>
+
+  <linearGradient id="surface" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#263139"/>
+    <stop offset="1" stop-color="#151e25"/>
+  </linearGradient>
+
+  <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#303940"/>
+    <stop offset="1" stop-color="#101820"/>
+  </linearGradient>
+
+  <linearGradient id="vehicle" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#798b96"/>
+    <stop offset=".45" stop-color="#354752"/>
+    <stop offset="1" stop-color="#17252f"/>
+  </linearGradient>
+
+  <linearGradient id="scanBeam" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#a7ffbf" stop-opacity=".28"/>
+    <stop offset="1" stop-color="#79ffac" stop-opacity=".02"/>
+  </linearGradient>
+
+  <linearGradient id="amber" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#d78940"/>
+    <stop offset="1" stop-color="#ffd49b"/>
+  </linearGradient>
+
+  <pattern id="grid" width="40" height="40"
+           patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40"
+          fill="none" stroke="#82919c"
+          stroke-width=".6" opacity=".12"/>
+  </pattern>
+
+  <clipPath id="streetClip">
+    <rect x="42" y="337" width="807" height="300" rx="10"/>
+  </clipPath>
+
+  <!-- Typing masks: 18-second synchronized loop -->
+  <mask id="type1" maskContentUnits="userSpaceOnUse">
+    <rect x="920" y="370" width="0" height="24" fill="white">
+      <animate attributeName="width"
+               values="0;135;135;0"
+               keyTimes="0;.13;.94;1"
+               calcMode="discrete"
+               dur="18s" repeatCount="indefinite"/>
+    </rect>
+  </mask>
+
+  <mask id="type2" maskContentUnits="userSpaceOnUse">
+    <rect x="920" y="399" width="0" height="24" fill="white">
+      <animate attributeName="width"
+               values="0;0;0;0"
+               dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="width"
+               values="0;0;210;210;0"
+               keyTimes="0;.14;.29;.94;1"
+               dur="18s" repeatCount="indefinite"/>
+    </rect>
+  </mask>
+
+  <mask id="type3" maskContentUnits="userSpaceOnUse">
+    <rect x="920" y="428" width="0" height="24" fill="white">
+      <animate attributeName="width"
+               values="0;0;230;230;0"
+               keyTimes="0;.30;.45;.94;1"
+               dur="18s" repeatCount="indefinite"/>
+    </rect>
+  </mask>
+
+  <mask id="type4" maskContentUnits="userSpaceOnUse">
+    <rect x="920" y="457" width="0" height="24" fill="white">
+      <animate attributeName="width"
+               values="0;0;175;175;0"
+               keyTimes="0;.46;.59;.94;1"
+               dur="18s" repeatCount="indefinite"/>
+    </rect>
+  </mask>
+
+  <mask id="type5" maskContentUnits="userSpaceOnUse">
+    <rect x="920" y="486" width="0" height="24" fill="white">
+      <animate attributeName="width"
+               values="0;0;215;215;0"
+               keyTimes="0;.60;.75;.94;1"
+               dur="18s" repeatCount="indefinite"/>
+    </rect>
+  </mask>
+
+  <mask id="type6" maskContentUnits="userSpaceOnUse">
+    <rect x="920" y="515" width="0" height="24" fill="white">
+      <animate attributeName="width"
+               values="0;0;365;365;0"
+               keyTimes="0;.76;.91;.94;1"
+               dur="18s" repeatCount="indefinite"/>
+    </rect>
+  </mask>
+
+  <style>
+    text {font-family:Arial,Helvetica,sans-serif}
+    .heading {fill:#f5f5f0;font-weight:bold}
+    .muted {fill:#aab8bc}
+    .panel {fill:url(#surface);stroke:#56656b;stroke-width:1.5}
+    .mono {font-family:Consolas,Monaco,monospace}
+  </style>
+
+  <g id="trackedCar">
+    <ellipse cx="0" cy="38" rx="110" ry="11"
+             fill="#02070a" opacity=".6"/>
+
+    <path d="M-112 7L-94-16L-54-23L-31-54
+             Q-21-65 5-65H50Q70-65 86-42
+             L105-18Q118-12 119 6V24H-112Z"
+          fill="url(#vehicle)"
+          stroke="#a5b6bf" stroke-width="2"/>
+
+    <path d="M-42-26L-20-54H7V-26Z"
+          fill="#0a1c27" stroke="#7b9aa7" stroke-width="1.5"/>
+
+    <path d="M16-54H48Q60-54 74-30L77-26H16Z"
+          fill="#0a1c27" stroke="#7b9aa7" stroke-width="1.5"/>
+
+    <path d="M-15-51L-33-29M30-51L49-29"
+          stroke="#c2d8dc" opacity=".3" stroke-width="3"/>
+
+    <path d="M11-24V18M-43-23L-44 18"
+          fill="none" stroke="#82939c" stroke-width="1.5"/>
+
+    <path d="M-30-14H-13M30-14H47"
+          stroke="#c0ccd0" stroke-width="3"
+          stroke-linecap="round"/>
+
+    <rect x="103" y="-9" width="14" height="9"
+          rx="2" fill="#f6e9ba"/>
+
+    <rect x="-112" y="-5" width="12" height="10"
+          rx="2" fill="#d7504b"/>
+
+    <circle cx="-67" cy="23" r="25"
+            fill="#0a0f14" stroke="#55636c" stroke-width="3"/>
+    <circle cx="70" cy="23" r="25"
+            fill="#0a0f14" stroke="#55636c" stroke-width="3"/>
+
+    <circle cx="-67" cy="23" r="12" fill="#8797a0"/>
+    <circle cx="70" cy="23" r="12" fill="#8797a0"/>
+
+    <g stroke="#263641" stroke-width="3">
+      <path d="M-67 11V35M-79 23H-55"/>
+      <path d="M70 11V35M58 23H82"/>
+    </g>
+  </g>
+</defs>
+
+<!-- BACKGROUND -->
+<rect width="1400" height="950" rx="20"
+      fill="url(#background)"/>
+<rect width="1400" height="950" fill="url(#grid)"/>
+
+<!-- HEADER -->
+<rect x="27" y="29" width="7" height="66"
+      rx="3" fill="#efb36e"/>
+
+<text x="51" y="62" class="heading" font-size="34">
+  SQL DATA BREACH INVESTIGATION
+</text>
+
+<text x="52" y="92" fill="#d4b48f" font-size="17">
+  Digital Forensics • PostgreSQL • Transportation Records • Cross-Database Analysis
+</text>
+
+<rect x="1103" y="35" width="270" height="44"
+      rx="8" fill="#332a23" stroke="#c18e56"/>
+
+<circle cx="1126" cy="57" r="6" fill="#f3a05b">
+  <animate attributeName="opacity"
+           values="1;.25;1"
+           dur="1.4s" repeatCount="indefinite"/>
+</circle>
+
+<text x="1145" y="63" fill="#f4d4ab"
+      font-size="16" font-weight="bold">
+  SURVEILLANCE ANALYSIS
+</text>
+
+<!-- SUMMARY CARDS -->
+<rect x="25" y="116" width="430" height="102"
+      rx="12" class="panel"/>
+<rect x="470" y="116" width="430" height="102"
+      rx="12" class="panel"/>
+<rect x="915" y="116" width="460" height="102"
+      rx="12" class="panel"/>
+
+<text x="45" y="148" fill="#f0bd80"
+      font-size="16" font-weight="bold">
+  INVESTIGATION OBJECTIVE
+</text>
+
+<text x="45" y="180" fill="#ffffff" font-size="18">
+  Identify individuals connected
+</text>
+<text x="45" y="203" fill="#ffffff" font-size="18">
+  to the incident location
+</text>
+
+<text x="490" y="148" fill="#f0bd80"
+      font-size="16" font-weight="bold">
+  INVESTIGATION PROCESS
+</text>
+
+<text x="490" y="194" fill="#ffffff"
+      font-size="35" font-weight="bold">
+  6 SQL STAGES
+</text>
+
+<text x="935" y="148" fill="#f0bd80"
+      font-size="16" font-weight="bold">
+  CROSS-DATABASE INVESTIGATION
+</text>
+
+<text x="935" y="188" fill="#ffffff"
+      font-size="27" font-weight="bold">
+  PostgreSQL + dblink
+</text>
+
+<text x="935" y="207" class="muted" font-size="13">
+  Ride-sharing and employee databases
+</text>
+
+<!-- SURVEILLANCE PANEL -->
+<rect x="25" y="236" width="840" height="425"
+      rx="14" class="panel"/>
+
+<text x="45" y="273" class="heading" font-size="23">
+  VEHICLE SURVEILLANCE RECONSTRUCTION
+</text>
+
+<text x="45" y="299" class="muted" font-size="14">
+  Visualizing the location and timestamp filtering process
+</text>
+
+<g clip-path="url(#streetClip)">
+  <rect x="42" y="337" width="807" height="300"
+        fill="#101a21"/>
+
+  <!-- BUILDINGS -->
+  <g fill="#1e3039">
+    <rect x="43" y="352" width="112" height="166"/>
+    <rect x="163" y="378" width="125" height="140"/>
+    <rect x="302" y="350" width="110" height="168"/>
+    <rect x="425" y="371" width="135" height="147"/>
+    <rect x="576" y="345" width="120" height="173"/>
+    <rect x="710" y="366" width="140" height="152"/>
+  </g>
+
+  <g fill="#9b8d64" opacity=".48">
+    <rect x="65" y="379" width="22" height="24"/>
+    <rect x="102" y="379" width="22" height="24"/>
+    <rect x="65" y="420" width="22" height="24"/>
+    <rect x="102" y="420" width="22" height="24"/>
+    <rect x="190" y="401" width="25" height="23"/>
+    <rect x="236" y="401" width="25" height="23"/>
+    <rect x="326" y="377" width="23" height="24"/>
+    <rect x="369" y="377" width="23" height="24"/>
+    <rect x="453" y="399" width="24" height="25"/>
+    <rect x="501" y="399" width="24" height="25"/>
+    <rect x="602" y="371" width="25" height="23"/>
+    <rect x="649" y="371" width="25" height="23"/>
+    <rect x="735" y="391" width="24" height="24"/>
+    <rect x="787" y="391" width="24" height="24"/>
+  </g>
+
+  <rect x="331" y="454" width="186" height="35"
+        rx="4" fill="#1c282e" stroke="#75868b"/>
+
+  <text x="424" y="477" text-anchor="middle"
+        fill="#d5e0dd" font-size="15" font-weight="bold">
+    INCIDENT LOCATION
+  </text>
+
+  <rect x="42" y="516" width="807" height="20"
+        fill="#56616a"/>
+  <path d="M42 517H849" stroke="#a4adb0" stroke-width="2"/>
+
+  <rect x="42" y="536" width="807" height="101"
+        fill="url(#road)"/>
+
+  <path d="M42 607H849" stroke="#d8c79a"
+        stroke-width="4" stroke-dasharray="62 35"
+        opacity=".75"/>
+
+  <!-- SURVEILLANCE CAMERA -->
+  <path d="M686 352V397H649"
+        fill="none" stroke="#9faeb2"
+        stroke-width="9" stroke-linecap="round"/>
+
+  <g transform="translate(638 397) rotate(-17)">
+    <rect x="-25" y="-14" width="75" height="27"
+          rx="6" fill="#aebbc0" stroke="#e5eeee"
+          stroke-width="2"/>
+
+    <rect x="-35" y="-11" width="16" height="21"
+          rx="4" fill="#44535d"/>
+
+    <circle cx="-29" cy="0" r="6"
+            fill="#182a32" stroke="#7e9ea4"
+            stroke-width="2"/>
+
+    <circle cx="39" cy="0" r="5" fill="#f17c5d">
+      <animate attributeName="opacity"
+               values="1;.2;1"
+               dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- SCANNING FIELD -->
+  <path d="M609 403L333 610L790 610Z"
+        fill="url(#scanBeam)"
+        stroke="#8af3b5"
+        stroke-width="1.5"
+        stroke-dasharray="7 7"
+        opacity=".55">
+    <animate attributeName="opacity"
+             values=".25;.65;.25"
+             dur="4s" repeatCount="indefinite"/>
+  </path>
+
+  <line x1="609" y1="403" x2="430" y2="609"
+        stroke="#a2ffbd"
+        stroke-width="3"
+        opacity=".75">
+    <animate attributeName="x2"
+             values="320;780;320"
+             dur="6s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- MOVING CAR -->
+  <g>
+    <animateTransform attributeName="transform"
+                      type="translate"
+                      values="130 570;460 570;750 570;130 570"
+                      keyTimes="0;.38;.8;1"
+                      dur="12s"
+                      repeatCount="indefinite"/>
+    <g transform="scale(.85)">
+      <use href="#trackedCar"/>
+    </g>
+  </g>
+
+  <!-- SURVEILLANCE OVERLAY -->
+  <text x="60" y="365" fill="#9dffbb"
+        class="mono" font-size="13">
+    CAM 04 / LOCATION FILTER
+  </text>
+
+  <text x="60" y="386" fill="#b8d3c6"
+        class="mono" font-size="11">
+    Illustrative surveillance reconstruction
+  </text>
+
+  <circle cx="812" cy="359" r="5" fill="#ff6d5e">
+    <animate attributeName="opacity"
+             values="1;0;1"
+             dur="1s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- SQL PANEL -->
+<rect x="882" y="236" width="493" height="425"
+      rx="14" class="panel"/>
+
+<text x="903" y="273" class="heading" font-size="22">
+  SQL EVIDENCE ANALYSIS
+</text>
+
+<text x="903" y="299" class="muted" font-size="14">
+  Vehicle IDs, drivers, riders, and employee records
+</text>
+
+<!-- TERMINAL -->
+<rect x="902" y="324" width="452" height="226"
+      rx="9" fill="#0a1217" stroke="#64757a"/>
+
+<rect x="902" y="324" width="452" height="35"
+      rx="9" fill="#303d43"/>
+
+<circle cx="923" cy="342" r="5" fill="#dc7866"/>
+<circle cx="940" cy="342" r="5" fill="#e6b36d"/>
+<circle cx="957" cy="342" r="5" fill="#8fc49c"/>
+
+<text x="978" y="347" fill="#d9e4e1"
+      class="mono" font-size="13">
+  investigation.sql
+</text>
+
+<!-- SQL CODE WITH CHARACTER-BY-CHARACTER REVEAL -->
+<!-- A blue cursor moves across each line in sequence. -->
+
+<g class="mono" font-size="15">
+
+  <text x="920" y="390" fill="#e9b47d"
+        mask="url(#type1)">
+    SELECT DISTINCT
+  </text>
+
+  <text x="920" y="419" fill="#d9e6e3"
+        mask="url(#type2)">
+    vehicle_id, driver_id,
+  </text>
+
+  <text x="920" y="448" fill="#d9e6e3"
+        mask="url(#type3)">
+    rider_id, employee_name
+  </text>
+
+  <text x="920" y="477" fill="#e9b47d"
+        mask="url(#type4)">
+    FROM ride_records
+  </text>
+
+  <text x="920" y="506" fill="#8ce2ae"
+        mask="url(#type5)">
+    JOIN employee_records
+  </text>
+
+  <text x="920" y="535" fill="#d9e6e3"
+        mask="url(#type6)">
+    ON rider_name = employee_name;
+  </text>
+
+</g>
+
+<!-- BLUE TYPING CURSOR -->
+<rect x="920" y="375" width="3" height="19"
+      fill="#39aaff">
+  <animate attributeName="x"
+           values="920;1055;1055;920;920;920;920;920"
+           keyTimes="0;.13;.14;.29;.45;.59;.75;1"
+           dur="18s" repeatCount="indefinite"/>
+  <animate attributeName="y"
+           values="375;375;404;404;433;462;491;520"
+           keyTimes="0;.13;.14;.29;.45;.59;.75;1"
+           calcMode="discrete"
+           dur="18s" repeatCount="indefinite"/>
+  <animate attributeName="opacity"
+           values="1;.35;1"
+           dur=".6s" repeatCount="indefinite"/>
+</rect>
+
+<!-- ADDITIONAL LINE CURSORS -->
+<g fill="#39aaff">
+
+  <rect x="920" y="404" width="3" height="19">
+    <animate attributeName="x"
+             values="920;920;1130;1130"
+             keyTimes="0;.14;.29;1"
+             dur="18s" repeatCount="indefinite"/>
+    <animate attributeName="opacity"
+             values="0;0;1;0"
+             keyTimes="0;.14;.29;1"
+             dur="18s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="920" y="433" width="3" height="19">
+    <animate attributeName="x"
+             values="920;920;1150;1150"
+             keyTimes="0;.30;.45;1"
+             dur="18s" repeatCount="indefinite"/>
+    <animate attributeName="opacity"
+             values="0;0;1;0"
+             keyTimes="0;.30;.45;1"
+             dur="18s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="920" y="462" width="3" height="19">
+    <animate attributeName="x"
+             values="920;920;1095;1095"
+             keyTimes="0;.46;.59;1"
+             dur="18s" repeatCount="indefinite"/>
+    <animate attributeName="opacity"
+             values="0;0;1;0"
+             keyTimes="0;.46;.59;1"
+             dur="18s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="920" y="491" width="3" height="19">
+    <animate attributeName="x"
+             values="920;920;1135;1135"
+             keyTimes="0;.60;.75;1"
+             dur="18s" repeatCount="indefinite"/>
+    <animate attributeName="opacity"
+             values="0;0;1;0"
+             keyTimes="0;.60;.75;1"
+             dur="18s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="920" y="520" width="3" height="19">
+    <animate attributeName="x"
+             values="920;920;1285;1285"
+             keyTimes="0;.76;.91;1"
+             dur="18s" repeatCount="indefinite"/>
+    <animate attributeName="opacity"
+             values="0;0;1;0"
+             keyTimes="0;.76;.91;1"
+             dur="18s" repeatCount="indefinite"/>
+  </rect>
+
+</g>
+
+<!-- QUERY STATUS -->
+<rect x="902" y="566" width="452" height="71"
+      rx="8" fill="#182b2c" stroke="#5b8b78"/>
+
+<circle cx="925" cy="590" r="6" fill="#9ff5b5">
+  <animate attributeName="opacity"
+           values=".25;1;.25"
+           dur="2s" repeatCount="indefinite"/>
+</circle>
+
+<text x="942" y="595" fill="#b7f4c5"
+      font-size="15" font-weight="bold">
+  CROSS-DATABASE IDENTITY CHECK
+</text>
+
+<text x="921" y="621" fill="#c0d0c9"
+      class="mono" font-size="13">
+  PostgreSQL dblink / employee records
+</text>
+
+<!-- INVESTIGATION WORKFLOW -->
+<rect x="25" y="680" width="1350" height="224"
+      rx="14" class="panel"/>
+
+<text x="47" y="715" class="heading" font-size="23">
+  RECONSTRUCTING THE INVESTIGATION
+</text>
+
+<text x="47" y="741" class="muted" font-size="14">
+  From suspicious ride activity to cross-database identity verification
+</text>
+
+<g fill="#202e33" stroke="#687c7c" stroke-width="1.5">
+  <rect x="46" y="766" width="200" height="107" rx="9"/>
+  <rect x="267" y="766" width="200" height="107" rx="9"/>
+  <rect x="488" y="766" width="200" height="107" rx="9"/>
+  <rect x="709" y="766" width="200" height="107" rx="9"/>
+  <rect x="930" y="766" width="200" height="107" rx="9"/>
+  <rect x="1151" y="766" width="200" height="107" rx="9"/>
+</g>
+
+<g fill="#f1bd81" font-size="26" font-weight="bold">
+  <text x="62" y="802">01</text>
+  <text x="283" y="802">02</text>
+  <text x="504" y="802">03</text>
+  <text x="725" y="802">04</text>
+  <text x="946" y="802">05</text>
+  <text x="1167" y="802">06</text>
+</g>
+
+<g fill="#ffffff" font-size="15" font-weight="bold">
+  <text x="62" y="829">FILTER RIDES</text>
+  <text x="283" y="829">LINK VEHICLES</text>
+  <text x="504" y="829">TRACE DRIVERS</text>
+  <text x="725" y="829">TRACE RIDERS</text>
+  <text x="946" y="829">CLEAN NAMES</text>
+  <text x="1167" y="829">VERIFY MATCHES</text>
+</g>
+
+<g fill="#b5c3c1" font-size="12">
+  <text x="62" y="853">Coordinates + time</text>
+  <text x="283" y="853">Transportation records</text>
+  <text x="504" y="853">Driver associations</text>
+  <text x="725" y="853">Passenger identities</text>
+  <text x="946" y="853">SQL normalization</text>
+  <text x="1167" y="853">PostgreSQL dblink</text>
+</g>
+
+<!-- ANIMATED WORKFLOW PROGRESS -->
+<rect x="46" y="887" width="1305" height="5"
+      rx="2" fill="#344449"/>
+
+<rect x="46" y="887" width="1305" height="5"
+      rx="2" fill="url(#amber)">
+  <animate attributeName="width"
+           values="0;1305;1305"
+           keyTimes="0;.8;1"
+           dur="18s"
+           repeatCount="indefinite"/>
+</rect>
+
+<!-- FOOTNOTE -->
+<text x="28" y="932" fill="#9fb0ae" font-size="12">
+  Illustrative surveillance scene • SQL case study • Vehicle and rider identification • PostgreSQL joins • Cross-database employee verification
+</text>
+
+</svg>
